@@ -5,7 +5,6 @@ public class EmployeePayrollData {
     public int id;
     public String name;
     public double salary;
-    public double basic_pay;
     public LocalDate startDate;
 
     public EmployeePayrollData(Integer id, String name, Double salary){
@@ -14,8 +13,8 @@ public class EmployeePayrollData {
         this.salary = salary;
     }
 
-    public EmployeePayrollData(int id, String name, double basic_pay, LocalDate startDate) {
-        this(id, name, basic_pay);
+    public EmployeePayrollData(int id, String name, double salary, LocalDate startDate) {
+        this(id, name, salary);
         this.startDate = startDate;
     }
 
@@ -29,7 +28,7 @@ public class EmployeePayrollData {
         if (o == null || getClass() != o.getClass()) return false;
         EmployeePayrollData that = (EmployeePayrollData) o;
         return id == that.id &&
-                Double.compare(that.basic_pay, basic_pay) == 0 &&
+                Double.compare(that.salary, salary) == 0 &&
                 name.equals(that.name);
     }
 

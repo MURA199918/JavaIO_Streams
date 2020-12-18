@@ -1,7 +1,9 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.sql.SQLException;
 import java.util.Arrays;
+import java.util.List;
 
 public class EmployeePayrollServiceTest {
     @Test
@@ -24,5 +26,13 @@ public class EmployeePayrollServiceTest {
         EmployeePayrollService employeePayrollService = new EmployeePayrollService();
         long entries = employeePayrollService.readEmployeePayrollData(EmployeePayrollService.IOService.FILE_IO);
         Assert.assertEquals(3,entries);
+    }
+
+    @Test
+    public void givenEmployeePayrollInDB_whenRetrieved_ShouldMatchEmployeeCount() throws SQLException {
+        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        List<EmployeePayrollData> employeePayrollData = employeePayrollService.readEmployeePayrollServiceData(EmployeePayrollService.IOService.DB_IO);
+        Assert.assertEquals(4,employeePayrollData.size());
+        System.out.println("Answer found");
     }
 }

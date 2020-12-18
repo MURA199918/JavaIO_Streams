@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -30,6 +31,12 @@ public class EmployeePayrollService {
         System.out.println("Enter Employee Salary: ");
         double salary = consoleInputReader.nextDouble();
         employeePayrollList.add(new EmployeePayrollData(id,name,salary));
+    }
+
+    public List<EmployeePayrollData> readEmployeePayrollServiceData(IOService ioService) throws SQLException {
+        if(ioService.equals(IOService.DB_IO))
+            this.employeePayrollList = new EmployeePayrollDBService().readData();
+        return this.employeePayrollList;
     }
 
     public void writeEmployeePayrollData(EmployeePayrollService.IOService ioService) {

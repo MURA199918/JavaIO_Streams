@@ -82,7 +82,7 @@ public class EmployeePayrollDBService {
     }
 
     public int updateEmployeeData(String name, double salary) {
-        return this.updateEmployeeDataUsingStatement(name, salary);
+        return this.updateEmployeeDataUsingPreparedStatement(name, salary);
     }
 
     private int updateEmployeeDataUsingStatement(String name, double salary) {
@@ -97,12 +97,13 @@ public class EmployeePayrollDBService {
     }
 
     public int updateEmployeeDataUsingPreparedStatement(String name, double salary){
-        try(Connection connection = this.getConnection()){
-            String sql = "update employee_payroll set salary = ? where name = ? ;";
+        try(Connection connection = this.getConnection();){
+            String sql = "update employee_payroll set salary = ? where name = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setDouble(1,salary);
             preparedStatement.setString(2,name);
-            return preparedStatement.executeUpdate(sql);
+            int status =  preparedStatement.executeUpdate();
+            return status;
         }catch (SQLException e){
             e.printStackTrace();
         }

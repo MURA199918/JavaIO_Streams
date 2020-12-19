@@ -40,7 +40,7 @@ public class EmployeePayrollServiceTest {
     public void givenNewSalaryForEmployee_WhenUpdated_ShouldSyncWithDB() throws SQLException {
         EmployeePayrollService employeePayrollService = new EmployeePayrollService();
         List<EmployeePayrollData> employeePayrollData = employeePayrollService.readEmployeePayrollServiceData(EmployeePayrollService.IOService.DB_IO);
-        employeePayrollService.updateEmployeeSalary("Terisa", 3000000.00);
+        employeePayrollService.updateEmployeeSalary("Terisa", 5000000.00);
         boolean result = employeePayrollService.checkEmployeePayrollInSyncWithDB("Terisa");
         Assert.assertTrue(result);
         System.out.println("Answer found");

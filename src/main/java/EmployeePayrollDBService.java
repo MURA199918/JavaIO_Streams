@@ -1,7 +1,9 @@
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EmployeePayrollDBService {
 
@@ -37,6 +39,47 @@ public class EmployeePayrollDBService {
         String sql = String.format("SELECT * FROM employee_payroll WHERE start BETWEEN '%s' AND '%s';",
                                    Date.valueOf(startDate), Date.valueOf(endDate));
         return this.getEmployeePayrollDataUsingDB(sql);
+    }
+
+    public Map<String, Double> getAverageSalaryByGender() {
+        String sql = "SELECT gender, AVG(salary) as avg_salary FROM employee_payroll GROUP BY gender;";
+        return getCompileByGender("gender", "avg_salary", sql );
+    }
+
+    public Map<String, Double> getCountByGender() {
+        String sql = "SELECT gender, count(salary) as count_gender from employee_payroll GROUP BY gender";
+        return getCompileByGender("gender","count_gender",sql);
+    }
+
+    public Map<String, Double> getMinimumSalaryByGender() {
+        String sql = "SELECT gender, min(salary) as minSalary_gender from employee_payroll GROUP BY gender";
+        return getCompileByGender("gender","minSalary_gender",sql);
+    }
+
+    public Map<String, Double> getMaximumSalaryByGender() {
+        String sql = "SELECT gender, max(salary) as maxSalary_gender from employee_payroll GROUP BY gender";
+        return getCompileByGender("gender","maxSalary_gender",sql);
+    }
+
+    public Map<String, Double> getSumSalaryByGender() {
+        String sql = "SELECT gender, sum(salary) as sumSalary_gender from employee_payroll GROUP BY gender";
+        return getCompileByGender("gender","sumSalary_gender",sql);
+    }
+
+    private Map<String, Double> getCompileByGender(String gender, String compile, String sql) {
+        Map<String, Double> genderCountMap = new HashMap<>();
+        try(Connection connection = this.getConnection();){
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(sql);
+            while(result.next()) {
+                String getGender = result.getString(gender);
+                Double count = result.getDouble(compile);
+                genderCountMap.put(getGender, count);
+            }
+        }catch (SQLException e) {
+            e.getMessage();
+        }
+        return genderCountMap;
     }
 
     private List<EmployeePayrollData> getEmployeePayrollDataUsingDB(String sql) throws PayrollServiceException{

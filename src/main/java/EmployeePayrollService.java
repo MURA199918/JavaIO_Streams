@@ -1,4 +1,5 @@
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -38,10 +39,16 @@ public class EmployeePayrollService {
         employeePayrollList.add(new EmployeePayrollData(id,name,salary));
     }
 
-    public List<EmployeePayrollData> readEmployeePayrollServiceData(IOService ioService) throws SQLException {
+    public List<EmployeePayrollData> readEmployeePayrollServiceData(IOService ioService) throws PayrollServiceException {
         if(ioService.equals(IOService.DB_IO))
             this.employeePayrollList = employeePayrollDBService.readData();
         return this.employeePayrollList;
+    }
+
+    public List<EmployeePayrollData> readEmployeePayrollForDateRange(IOService ioService, LocalDate startDate, LocalDate endDate) throws PayrollServiceException{
+        if(ioService.equals(IOService.DB_IO))
+            return employeePayrollDBService.getEmployeePayrollDateRange(startDate, endDate);
+        return null;
     }
 
     public boolean checkEmployeePayrollInSyncWithDB(String name) {

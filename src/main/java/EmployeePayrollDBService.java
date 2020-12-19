@@ -28,15 +28,25 @@ public class EmployeePayrollDBService {
         return connection;
     }
 
-    public List<EmployeePayrollData> readData() {
+    public List<EmployeePayrollData> readData() throws PayrollServiceException{
         String sql = "SELECT * FROM employee_payroll";
+        return this.getEmployeePayrollDataUsingDB(sql);
+    }
+
+    public List<EmployeePayrollData> getEmployeePayrollDateRange(LocalDate startDate, LocalDate endDate) throws PayrollServiceException {
+        String sql = String.format("SELECT * FROM employee_payroll WHERE start BETWEEN '%s' AND '%s';",
+                                   Date.valueOf(startDate), Date.valueOf(endDate));
+        return this.getEmployeePayrollDataUsingDB(sql);
+    }
+
+    private List<EmployeePayrollData> getEmployeePayrollDataUsingDB(String sql) throws PayrollServiceException{
         List<EmployeePayrollData> employeePayrollList = new ArrayList<>();
         try(Connection connection = this.getConnection()){
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             employeePayrollList = this.getEmployeePayrollData(resultSet);
         }catch (SQLException e){
-            e.printStackTrace();
+            throw new PayrollServiceException(e.getMessage(), PayrollServiceException.ExceptionType.RETRIEVAL_PROBLEM);
         }
         return employeePayrollList;
     }
@@ -49,13 +59,13 @@ public class EmployeePayrollDBService {
             employeePayrollDataStatement.setString(1,name);
             ResultSet resultSet = employeePayrollDataStatement.executeQuery();
             employeePayrollList = this.getEmployeePayrollData(resultSet);
-        }catch (SQLException e){
+        }catch (SQLException | PayrollServiceException e){
             e.printStackTrace();
         }
         return employeePayrollList;
     }
 
-    private List<EmployeePayrollData> getEmployeePayrollData(ResultSet resultSet) {
+    private List<EmployeePayrollData> getEmployeePayrollData(ResultSet resultSet) throws PayrollServiceException {
         List<EmployeePayrollData> employeePayrollList = new ArrayList<>();
         try{
             while (resultSet.next()){
@@ -66,7 +76,7 @@ public class EmployeePayrollDBService {
                 employeePayrollList.add(new EmployeePayrollData(id, name, salary, startDate));
             }
         }catch (SQLException e){
-            e.printStackTrace();
+            throw new PayrollServiceException(e.getMessage(), PayrollServiceException.ExceptionType.RETRIEVAL_PROBLEM);
         }
         return employeePayrollList;
     }
@@ -109,5 +119,4 @@ public class EmployeePayrollDBService {
         }
         return 0;
     }
-
 }

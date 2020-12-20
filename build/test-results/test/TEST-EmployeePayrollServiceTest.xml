@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-20T11:03:49" hostname="DESKTOP-J9DM2GE" time="0.345">
+<testsuite name="EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-20T11:27:11" hostname="DESKTOP-J9DM2GE" time="0.385">
   <properties/>
-  <testcase name="givenNewEmployee_WhenAdded_ShouldSyncWithDB" classname="EmployeePayrollServiceTest" time="0.345"/>
+  <testcase name="givenNewEmployee_WhenAdded_ShouldSyncWithDB" classname="EmployeePayrollServiceTest" time="0.385"/>
   <system-out><![CDATA[Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
 Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@4d346a1f
 Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false

@@ -99,4 +99,13 @@ public class EmployeePayrollServiceTest {
         Map<String, Double> countByGender = employeePayrollService.readSumSalaryByGender(EmployeePayrollService.IOService.DB_IO);
         Assert.assertTrue(countByGender.get("M").equals(4000000.00) && countByGender.get("F").equals(5000000.00));
     }
+
+    @Test
+    public void givenNewEmployee_WhenAdded_ShouldSyncWithDB() throws PayrollServiceException {
+        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        employeePayrollService.readEmployeePayrollServiceData(EmployeePayrollService.IOService.DB_IO);
+        employeePayrollService.addEmployeeToPayroll("Mark", 5000000.00, LocalDate.now(), "M");
+        boolean result = employeePayrollService.checkEmployeePayrollInSyncWithDB("Mark");
+        Assert.assertTrue(result);
+    }
 }

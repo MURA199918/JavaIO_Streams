@@ -100,6 +100,9 @@ public class EmployeePayrollService {
                    .orElse(null);
     }
 
+    public void addEmployeeToPayroll(String name, double salary, LocalDate startDate, String gender) {
+        employeePayrollList.add(employeePayrollDBService.addEmployeeToPayroll(name, salary, startDate, gender));
+    }
 
     public void writeEmployeePayrollData(EmployeePayrollService.IOService ioService) {
         if(ioService.equals(IOService.CONSOLE_IO))

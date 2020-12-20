@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-19T11:31:58" hostname="DESKTOP-J9DM2GE" time="0.284">
+<testsuite name="EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-20T10:24:58" hostname="DESKTOP-J9DM2GE" time="0.337">
   <properties/>
-  <testcase name="givenPayrollData_whenCountRetrieveByGender_ShouldReturnProperSumValue" classname="EmployeePayrollServiceTest" time="0.284"/>
+  <testcase name="givenNewEmployee_WhenAdded_ShouldSyncWithDB" classname="EmployeePayrollServiceTest" time="0.337"/>
   <system-out><![CDATA[Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@709b87b3
+Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@4d346a1f
 Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@2f44ced6
+Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@3bbbaa20
+Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@7cfe67e4
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

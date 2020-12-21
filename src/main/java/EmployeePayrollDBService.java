@@ -280,4 +280,32 @@ public class EmployeePayrollDBService {
         return employeePayrollData;
     }
 
+    public void removeEmployeeFromDB(String name) throws PayrollServiceException{
+        String sql = String.format("update employee_payroll set is_active = false where name = '%s'", name);
+        try(Connection connection = this.getConnection()){
+            Statement statement = connection.createStatement();
+            int rowAffected = statement.executeUpdate(sql);
+            if(rowAffected>0){
+                System.out.println("Employee Removed");
+            }
+        }catch (SQLException e){
+            throw new PayrollServiceException(e.getMessage(),PayrollServiceException.ExceptionType.CONNECTION_PROBLEM);
+        }
+    }
+
+    public int getNoOfActiveEmployeefromDB() throws PayrollServiceException {
+        int noOfActiveEmployee = 0;
+        String sql = "select sum(is_active) from employee_payroll";
+        try(Connection connection = this.getConnection()){
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                noOfActiveEmployee = resultSet.getInt("sum(is_active)");
+            }
+
+        }catch (SQLException e){
+            throw new PayrollServiceException(e.getMessage(),PayrollServiceException.ExceptionType.CONNECTION_PROBLEM);
+        }
+        return noOfActiveEmployee;
+    }
 }

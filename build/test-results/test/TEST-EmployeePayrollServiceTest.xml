@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-21T14:04:43" hostname="DESKTOP-J9DM2GE" time="0.316">
+<testsuite name="EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-21T16:01:50" hostname="DESKTOP-J9DM2GE" time="0.314">
   <properties/>
-  <testcase name="givenPayrollData_ShouldRetrieveData_FromAllTables" classname="EmployeePayrollServiceTest" time="0.316"/>
+  <testcase name="givenEmployeeName_ShouldRemove_EmployeePayrollData_FromDataBase" classname="EmployeePayrollServiceTest" time="0.314"/>
   <system-out><![CDATA[Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@74e356b0
+Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@4d346a1f
 Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@4546d3ea
+Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@47f92ffd
+Employee Removed
 Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@6ed544a
-Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@2caeb700
+Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@59f894e6
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

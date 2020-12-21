@@ -120,4 +120,13 @@ public class EmployeePayrollServiceTest {
         int noOfEntries_Table3 = employeePayrollService.readEmployeePayrollDatafromTables(EmployeePayrollService.IOService.DB_IO, "department");
         Assert.assertEquals(1,noOfEntries_Table3);
     }
+
+    @Test
+    public void givenEmployeeName_ShouldRemove_EmployeePayrollData_FromDataBase() throws PayrollServiceException {
+        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        employeePayrollService.readEmployeePayrollServiceData(EmployeePayrollService.IOService.DB_IO);
+        employeePayrollService.removeEmployeePayrollFromDB("Mark");
+        int noOfEmployee = employeePayrollService.getNoOfActiveEmployees();
+        Assert.assertEquals(3,noOfEmployee);
+    }
 }

@@ -111,6 +111,14 @@ public class EmployeePayrollService {
         employeePayrollList.add(employeePayrollDBService.addEmployeeToPayroll(name, salary, startDate, gender));
     }
 
+    public void removeEmployeePayrollFromDB(String name) throws PayrollServiceException {
+        employeePayrollDBService.removeEmployeeFromDB(name);
+    }
+
+    public int getNoOfActiveEmployees() throws PayrollServiceException {
+        return employeePayrollDBService.getNoOfActiveEmployeefromDB();
+    }
+
     public void writeEmployeePayrollData(EmployeePayrollService.IOService ioService) {
         if(ioService.equals(IOService.CONSOLE_IO))
             System.out.println("Writing Employee Payroll Roaster to Console "+employeePayrollList);

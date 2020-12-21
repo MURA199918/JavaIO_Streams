@@ -1,8 +1,7 @@
 RConnecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@74e356b0
+IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@4d346a1f
 RConnecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@4546d3ea
+IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@47f92ffd
+Employee Removed
 RConnecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-HConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@6ed544a
-RConnecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@2caeb700
+IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@59f894e6

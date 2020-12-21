@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-21T09:56:05" hostname="DESKTOP-J9DM2GE" time="0.349">
+<testsuite name="EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-21T14:04:43" hostname="DESKTOP-J9DM2GE" time="0.316">
   <properties/>
-  <testcase name="givenNewEmployee_WhenAdded_ShouldSyncWithDB" classname="EmployeePayrollServiceTest" time="0.349"/>
+  <testcase name="givenPayrollData_ShouldRetrieveData_FromAllTables" classname="EmployeePayrollServiceTest" time="0.316"/>
   <system-out><![CDATA[Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@71861574
+Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@74e356b0
 Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@5f3e487f
+Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@4546d3ea
 Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@270d59fe
+Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@6ed544a
+Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@2caeb700
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

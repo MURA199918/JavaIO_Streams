@@ -81,6 +81,13 @@ public class EmployeePayrollService {
         return null;
     }
 
+    public int readEmployeePayrollDatafromTables(IOService ioService, String tableName) {
+        int noOfEntries = 0;
+        if(ioService.equals(IOService.DB_IO))
+            noOfEntries =  employeePayrollDBService.readDataFromAllTables(tableName);
+        return noOfEntries;
+    }
+
     public boolean checkEmployeePayrollInSyncWithDB(String name) {
         List<EmployeePayrollData> employeePayrollDataList = employeePayrollDBService.getEmployeePayrollData(name);
         return employeePayrollDataList.get(0).equals(getEmployeePayrollData(name));

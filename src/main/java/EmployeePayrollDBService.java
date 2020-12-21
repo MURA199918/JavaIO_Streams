@@ -82,6 +82,21 @@ public class EmployeePayrollDBService {
         return genderCountMap;
     }
 
+    public int readDataFromAllTables(String tableName) {
+        int noOfEntries = 0;
+        String sql = String.format("select count(*) from %s", tableName);
+        try(Connection connection = this.getConnection()){
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()) {
+                noOfEntries = resultSet.getInt("count(*)");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return noOfEntries;
+    }
+
     private List<EmployeePayrollData> getEmployeePayrollDataUsingDB(String sql) throws PayrollServiceException{
         List<EmployeePayrollData> employeePayrollList = new ArrayList<>();
         try(Connection connection = this.getConnection()){
@@ -264,4 +279,5 @@ public class EmployeePayrollDBService {
         }
         return employeePayrollData;
     }
+
 }

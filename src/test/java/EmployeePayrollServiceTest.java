@@ -108,4 +108,16 @@ public class EmployeePayrollServiceTest {
         boolean result = employeePayrollService.checkEmployeePayrollInSyncWithDB("Mark");
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void givenPayrollData_ShouldRetrieveData_FromAllTables() throws PayrollServiceException {
+        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        employeePayrollService.readEmployeePayrollServiceData(EmployeePayrollService.IOService.DB_IO);
+        int noOfEntries_Table1 = employeePayrollService.readEmployeePayrollDatafromTables(EmployeePayrollService.IOService.DB_IO,"employee_payroll");
+        Assert.assertEquals(4, noOfEntries_Table1);
+        int noOfEntries_Table2 = employeePayrollService.readEmployeePayrollDatafromTables(EmployeePayrollService.IOService.DB_IO,"payroll_details");
+        Assert.assertEquals(1, noOfEntries_Table2);
+        int noOfEntries_Table3 = employeePayrollService.readEmployeePayrollDatafromTables(EmployeePayrollService.IOService.DB_IO, "department");
+        Assert.assertEquals(1,noOfEntries_Table3);
+    }
 }

@@ -232,22 +232,6 @@ public class EmployeePayrollDBService {
             }
         }
 
-        try(Statement statement = connection.createStatement()){
-            String department = "Marketing";
-            String sql = String.format("INSERT INTO department (dept_id,dept_name) values( %s, '%s' )", employeeId, department);
-            int rowAffected = statement.executeUpdate(sql);
-            if(rowAffected == 1){
-                employeePayrollData = new EmployeePayrollData(employeeId, name, salary, startDate);
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-            try {
-                connection.rollback();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-        }
-
         try {
             connection.commit();
         } catch (SQLException e) {

@@ -34,7 +34,7 @@ public class EmployeePayrollServiceTest {
     public void givenEmployeePayrollInDB_whenRetrieved_ShouldMatchEmployeeCount() throws PayrollServiceException {
         EmployeePayrollService employeePayrollService = new EmployeePayrollService();
         List<EmployeePayrollData> employeePayrollData = employeePayrollService.readEmployeePayrollServiceData(EmployeePayrollService.IOService.DB_IO);
-        Assert.assertEquals(4,employeePayrollData.size());
+        Assert.assertEquals(3,employeePayrollData.size());
         System.out.println("Answer found");
     }
 

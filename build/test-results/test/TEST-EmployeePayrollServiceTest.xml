@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-21T16:01:50" hostname="DESKTOP-J9DM2GE" time="0.314">
+<testsuite name="EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-22T04:13:05" hostname="DESKTOP-J9DM2GE" time="0.519">
   <properties/>
-  <testcase name="givenEmployeeName_ShouldRemove_EmployeePayrollData_FromDataBase" classname="EmployeePayrollServiceTest" time="0.314"/>
+  <testcase name="given6Employees_WhenAddedToDB_ShouldMatchEmployeeEntries" classname="EmployeePayrollServiceTest" time="0.519"/>
   <system-out><![CDATA[Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@4d346a1f
+Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@38a2850
+Employee being Added: Jeff Bezos
 Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@47f92ffd
-Employee Removed
+Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@1b9568ee
+Employee Added: Jeff Bezos
+Employee being Added: Bill Gates
 Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@59f894e6
+Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@3b8f8292
+Employee Added: Bill Gates
+Employee being Added: Mark Zuckerberg
+Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@3d65f7cd
+Employee Added: Mark Zuckerberg
+Employee being Added: Sundar
+Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@4f43a34c
+Employee Added: Sundar
+Employee being Added: Mukesh
+Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@420a52ae
+Employee Added: Mukesh
+Employee being Added: Anil
+Connecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+Connection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@5dbf7254
+Employee Added: Anil
+[id=11, name='Mark, salary=5000000.0, id=12, name='Jeff Bezos, salary=100000.0, id=13, name='Bill Gates, salary=200000.0, id=14, name='Mark Zuckerberg, salary=300000.0, id=15, name='Sundar, salary=600000.0, id=16, name='Mukesh, salary=1000000.0, id=17, name='Anil, salary=2000000.0]
+Duration without Thread : PT0.144295S
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

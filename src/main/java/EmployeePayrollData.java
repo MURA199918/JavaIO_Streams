@@ -24,6 +24,11 @@ public class EmployeePayrollData {
         this.gender = gender;
     }
 
+    @Override
+    public int hashCode(){
+        return Objects.hash(name, gender, salary, startDate);
+    }
+
     public String toString(){
         return "id=" + id + ", name='" + name + ", salary=" + salary;
     }

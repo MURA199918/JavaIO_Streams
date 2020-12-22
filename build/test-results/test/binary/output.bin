@@ -1,28 +1,55 @@
 RConnecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-HConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@38a2850
+IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@6a82127b
 "Employee being Added: Jeff Bezos
 RConnecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@1b9568ee
+IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@257d4eef
 Employee Added: Jeff Bezos
 "Employee being Added: Bill Gates
 RConnecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@3b8f8292
+IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@33a97c15
 Employee Added: Bill Gates
 'Employee being Added: Mark Zuckerberg
 RConnecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@3d65f7cd
+IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@1c0a016c
 !Employee Added: Mark Zuckerberg
 Employee being Added: Sundar
 RConnecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@4f43a34c
+HConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@c8b1473
 Employee Added: Sundar
 Employee being Added: Mukesh
 RConnecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@420a52ae
+IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@29c9ed97
 Employee Added: Mukesh
 Employee being Added: Anil
 RConnecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@5dbf7254
+IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@242716c1
 Employee Added: Anil
-œ[id=11, name='Mark, salary=5000000.0, id=12, name='Jeff Bezos, salary=100000.0, id=13, name='Bill Gates, salary=200000.0, id=14, name='Mark Zuckerberg, salary=300000.0, id=15, name='Sundar, salary=600000.0, id=16, name='Mukesh, salary=1000000.0, id=17, name='Anil, salary=2000000.0]
-'Duration without Thread : PT0.144295S
+œ[id=11, name='Mark, salary=5000000.0, id=42, name='Jeff Bezos, salary=100000.0, id=43, name='Bill Gates, salary=200000.0, id=44, name='Mark Zuckerberg, salary=300000.0, id=45, name='Sundar, salary=600000.0, id=46, name='Mukesh, salary=1000000.0, id=47, name='Anil, salary=2000000.0]
+(Duration without Thread : PT0.1311143S
+'Employee being Added: Mark Zuckerberg
+"Employee being Added: Jeff Bezos
+"Employee being Added: Bill Gates
+Employee being Added: Sundar
+RConnecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+RConnecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+RConnecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+Employee being Added: Anil
+RConnecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+Employee being Added: Mukesh
+RConnecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+RConnecting to database: jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@2680061e
+HConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@a43b25b
+IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@39f50829
+IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@334104d8
+IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@1a0dd01e
+IConnection is Successful!!!!!!!!com.mysql.jdbc.JDBC4Connection@28209c41
+!Employee Added: Mark Zuckerberg
+Employee Added: Sundar
+Employee Added: Anil
+Employee Added: Jeff Bezos
+Employee Added: Mukesh
+Employee Added: Bill Gates
+ñ[id=0, name='Jeff Bezos, salary=100000.0, id=0, name='Bill Gates, salary=200000.0, id=0, name='Mark Zuckerberg, salary=300000.0, id=0, name='Sundar, salary=600000.0, id=0, name='Mukesh, salary=1000000.0, id=0, name='Anil, salary=2000000.0]
+%Duration With Threads: PT0.0589139S
+‘[id=11, name='Mark, salary=5000000.0, id=42, name='Jeff Bezos, salary=100000.0, id=43, name='Bill Gates, salary=200000.0, id=44, name='Mark Zuckerberg, salary=300000.0, id=45, name='Sundar, salary=600000.0, id=46, name='Mukesh, salary=1000000.0, id=47, name='Anil, salary=2000000.0, id=49, name='Mark Zuckerberg, salary=300000.0, id=48, name='Sundar, salary=600000.0, id=52, name='Anil, salary=2000000.0, id=50, name='Mukesh, salary=1000000.0, id=51, name='Jeff Bezos, salary=100000.0, id=53, name='Bill Gates, salary=200000.0]

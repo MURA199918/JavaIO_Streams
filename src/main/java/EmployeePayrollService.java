@@ -126,11 +126,41 @@ public class EmployeePayrollService {
         System.out.println(employeePayrollDataList);
     }
 
+    public void UpdateEmployeesToPayrollWithThreads(List<EmployeePayrollData> employeePayrollDataList) {
+        Map<Integer, Boolean> employeeUpdateStatus = new HashMap<>();
+        employeePayrollDataList.forEach(employeePayrollData -> {
+            Runnable task = () -> {
+                employeeUpdateStatus.put(employeePayrollData.hashCode(), false);
+                System.out.println("Employee being Updated: "+Thread.currentThread().getName());
+                this.updateEmployeeSalary(employeePayrollData.name, employeePayrollData.salary);
+                employeeUpdateStatus.put(employeePayrollData.hashCode(), true);
+                System.out.println("Employee Updated: "+Thread.currentThread().getName());
+            };
+            Thread thread = new Thread(task, employeePayrollData.name);
+            thread.start();
+        });
+        while (employeeUpdateStatus.containsValue(false)){
+            try{
+                Thread.sleep(10);
+            }catch (InterruptedException e){ }
+        }
+        System.out.println(employeePayrollDataList);
+    }
+
     public void addEmployeesToPayroll(List<EmployeePayrollData> employeePayrollDataList) {
         employeePayrollDataList.forEach(employeePayrollData->{
             System.out.println("Employee being Added: "+employeePayrollData.name);
             this.addEmployeeToPayroll(employeePayrollData.name, employeePayrollData.salary, employeePayrollData.startDate, employeePayrollData.gender);
             System.out.println("Employee Added: "+employeePayrollData.name);
+        });
+        System.out.println(this.employeePayrollList);
+    }
+
+    public void UpdateEmployeesToPayroll(List<EmployeePayrollData> employeePayrollDataList) {
+        employeePayrollDataList.forEach(employeePayrollData -> {
+            System.out.println("Employee being updated: "+employeePayrollData.name);
+            this.updateEmployeeSalary(employeePayrollData.name, employeePayrollData.salary);
+            System.out.println("Employee Updated: "+employeePayrollData.name);
         });
         System.out.println(this.employeePayrollList);
     }

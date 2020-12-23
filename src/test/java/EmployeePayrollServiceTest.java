@@ -156,4 +156,31 @@ public class EmployeePayrollServiceTest {
         Assert.assertEquals(13, employeePayrollService.countEntries(EmployeePayrollService.IOService.DB_IO));
 
     }
+
+    @Test
+    public void givenEmployees_WhenSalaryUpdatedToDB_ShouldMatchEmployeeEntries() throws PayrollServiceException{
+        EmployeePayrollData[] arrayOfEmps = {
+                new EmployeePayrollData(0, "Jeff Bezos", "M", 200000.0, LocalDate.now()),
+                new EmployeePayrollData(0, "Bill Gates", "M", 100000.0, LocalDate.now()),
+                new EmployeePayrollData(0, "Mark Zuckerberg", "M", 200000.0, LocalDate.now()),
+                new EmployeePayrollData(0, "Sundar", "M", 500000.0, LocalDate.now()),
+                new EmployeePayrollData(0, "Mukesh", "M", 2000000.0, LocalDate.now()),
+                new EmployeePayrollData(0, "Anil", "M", 3000000.0, LocalDate.now())
+        };
+        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        employeePayrollService.readEmployeePayrollServiceData(EmployeePayrollService.IOService.DB_IO);
+        Instant start = Instant.now();
+        employeePayrollService.UpdateEmployeesToPayroll(Arrays.asList(arrayOfEmps));
+        Instant end = Instant.now();
+        System.out.println("Duration without Thread : "+ Duration.between(start,end));
+        Instant threadStart = Instant.now();
+        employeePayrollService.UpdateEmployeesToPayrollWithThreads(Arrays.asList(arrayOfEmps));
+        Instant threadEnd = Instant.now();
+        System.out.println("Duration With Threads: "+Duration.between(threadStart, threadEnd));
+        employeePayrollService.printData(EmployeePayrollService.IOService.DB_IO);
+        boolean result = employeePayrollService.checkEmployeePayrollInSyncWithDB("Anil");
+        Assert.assertTrue(result);
+        System.out.println("Answer found");
+        Assert.assertEquals(13, employeePayrollService.countEntries(EmployeePayrollService.IOService.DB_IO));
+    }
 }
